@@ -2,7 +2,7 @@
 
 This is an online resume of Tian (Troy) Gao.
 
-The static web page is generated and frozen with [Flask][] and powered by [Bootstrap][].
+The static web page is generated and frozen with [Flask]() and powered by [Bootstrap]().
 
 
 
