@@ -26,6 +26,7 @@
 				<li><a href="#education" class="menu">education background</a></li>
 				<li><a href="#professional" class="menu">professional experience</a></li>
 			</ul>
+			<hr />
 		</div>
 	</header>
 
@@ -37,7 +38,7 @@
 					<span class="label">Github</span></a></li>
 				<li><a href="https://www.linkedin.com/in/tian-gao" target="_blank" class="icon fa-linkedin">
 					<span class="label">LinkedIn</span></a></li>
-				<li><a href="mailto:troyskygt@gmail.com" class="icon fa-envelope-o">
+				<li><a href="mailto:tian.gao@columbia.edu" class="icon fa-envelope-o">
 					<span class="label">Email</span></a></li>
 			</ul>
 			<ul class="copyright">
@@ -51,9 +52,22 @@
 
 
 	<!-- Main -->
-		<div id="main">
-			<p>aasdfasdf </p>
-		</div>
+	<div id="main">
+		{% for edu in education %}
+		    <p class='hideshow'>{{edu.school}}  <b>{{edu.location}}</b></p>
+		    <p>{{edu.degree}}  <b>{{edu.period}}</b></p>
+		    <br />
+		{% endfor %}
+		{% for pro in professional %}
+		    <p class='hideshow'>{{pro.company}}  <b>{{pro.location}}</b></p>
+		    <p>{{pro.position}}  <b>{{pro.period}}</b></p>
+		    {% for des in pro.description %}
+		    	<p class='content'>{{des}}</p>
+		    {% endfor %}
+		    <br />
+		{% endfor %}
+
+	</div>
 
 
 
@@ -63,5 +77,12 @@
 <script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/util.js') }}"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery('.hideshow').on('click', function(event) {        
+		jQuery('.content').toggle('show');
+	});
+});
+</script>
 </body>
 </html>
