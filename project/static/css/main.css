@@ -1562,7 +1562,7 @@
 		}
 
 	body, input, select, textarea {
-		color: #323232;
+		color: #666666;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 400;
@@ -1574,18 +1574,18 @@
 		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		/*color: #49bf9d;*/
+		color: #323232;
 		text-decoration: none;
 	}
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #efefef !important;
+			color: #4e8287 !important;
 			text-decoration: none;
 		}
 
 	strong, b {
-		color: #787878;
+		color: #15526b;
 		font-weight: 400;
 	}
 
@@ -1594,14 +1594,14 @@
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 0.3em 0 0.3em 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #787878;
+		color: #15526b;
 		font-weight: 400;
 		line-height: 1em;
-		margin: 0 0 1em 0;
+		margin: 0 0 0.5em 0;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -1653,7 +1653,7 @@
 
 	hr {
 		border: 0;
-		border-bottom: solid 2px #efefef;
+		border-bottom: solid 2px #15526b;
 		margin: 2em 0;
 	}
 
@@ -1716,12 +1716,14 @@
 		margin: 0 0 1.5em 0;
 	}
 
-	header h2 + p {
+	header h1 + p {
+		
 		font-size: 1.25em;
 		margin-top: -1em;
 		line-height: 1.5em;
 	}
 
+	header h2 + p,
 	header h3 + p {
 		font-size: 1.1em;
 		margin-top: -0.8em;
@@ -1736,7 +1738,8 @@
 		line-height: 1.5em;
 	}
 
-	header.major h2 {
+	header.major h1 {
+		text-transform: uppercase;
 		font-size: 2em;
 	}
 
@@ -2326,16 +2329,16 @@
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		background-color: transparent;
 		border-radius: 0.35em;
-		border: solid 3px #efefef;
-		color: #787878 !important;
+		border: solid 2px #15526b;
+		color: #2d6677 !important;
 		cursor: pointer;
 		display: inline-block;
 		font-weight: 400;
-		height: 3.15em;
-		height: calc(2.75em + 6px);
+		/*height: 3em;*/
+		height: calc(2.75em + 5px);
 		line-height: 2.75em;
 		min-width: 10em;
-		padding: 0 1.5em;
+		/*padding: 0 1.5em;*/
 		text-align: center;
 		text-decoration: none;
 		white-space: nowrap;
@@ -2345,8 +2348,8 @@
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
-			border-color: #49bf9d;
-			color: #49bf9d !important;
+			border-color: #4e8287;
+			color: #4e8287 !important;
 		}
 
 		input[type="submit"]:active,
@@ -2354,8 +2357,8 @@
 		input[type="button"]:active,
 		.button:active {
 			background-color: rgba(73, 191, 157, 0.1);
-			border-color: #49bf9d;
-			color: #49bf9d !important;
+			border-color: #4e8287;
+			color: #4e8287 !important;
 		}
 
 		input[type="submit"].icon,
@@ -2487,7 +2490,7 @@
 		position: fixed;
 		text-align: center;
 		top: 0;
-		width: 35%;
+		width: 30%;
 		overflow: auto;
 	}
 
@@ -2601,7 +2604,7 @@
 	}
 
 		#main > section {
-			border-top: solid 2px #efefef;
+			border-top: solid 2px #15526b;
 			margin: 4em 0 0 0;
 			padding: 4em 0 0 0;
 		}
@@ -2611,6 +2614,16 @@
 				margin-top: 0;
 				padding-top: 0;
 			}
+
+	.entry {
+		border-left: solid 1px #15526b;
+	}
+
+	li.content-entry {
+		margin-left: calc(-1em - 1px);
+		padding-left: calc(1em + 1px);
+		text-indent: 0;
+	}
 
 /* Poptrox */
 
@@ -3036,7 +3049,7 @@
 				text-align: center;
 			}
 
-			header.major h2 {
+			header.major h1 {
 				font-size: 1.35em;
 			}
 

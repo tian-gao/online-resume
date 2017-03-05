@@ -12,4 +12,6 @@ def home():
     
     return render_template('index.html', 
         education = d['education'],
-        professional = d['professional'])
+        professional = d['professional'],
+        extracurricular = d['extracurricular'],
+        publications = d['publications'])

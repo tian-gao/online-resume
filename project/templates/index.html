@@ -24,7 +24,11 @@
 			<hr />
 			<ul class="menu">
 				<li><a href="#education" class="menu">education background</a></li>
+				<li><a href="#skill" class="menu">skill sets</a></li>
 				<li><a href="#professional" class="menu">professional experience</a></li>
+				<li><a href="#extracurricular" class="menu">extracurricular experience</a></li>
+				<li><a href="#publication" class="menu">publications</a></li>
+				<li><a href="#honors" class="menu">honors &amp awards</a></li>
 			</ul>
 			<hr />
 		</div>
@@ -34,11 +38,13 @@
 	<footer id="footer">
 		<div class="inner">
 			<ul class="icons">
-				<li><a href="https://github.com/tian-gao" target="_blank" class="icon fa-github">
+				<li><a href="https://github.com/tian-gao" target="_blank" class="menu icon fa-github">
 					<span class="label">Github</span></a></li>
-				<li><a href="https://www.linkedin.com/in/tian-gao" target="_blank" class="icon fa-linkedin">
+				<li><a href="https://www.linkedin.com/in/tian-gao" target="_blank" class="menu icon fa-linkedin">
 					<span class="label">LinkedIn</span></a></li>
-				<li><a href="mailto:tian.gao@columbia.edu" class="icon fa-envelope-o">
+				<li><a href="https://www.facebook.com/TianTroyGao" target="_blank" class="menu icon fa-facebook">
+					<span class="label">Facebook</span></a></li>
+				<li><a href="mailto:tian.gao@columbia.edu" class="menu icon fa-envelope-o">
 					<span class="label">Email</span></a></li>
 			</ul>
 			<ul class="copyright">
@@ -53,18 +59,108 @@
 
 	<!-- Main -->
 	<div id="main">
+	
+	<!-- about me -->
+	<section id="">
+		<header class="major">
+			<h1>about me</h1>
+		</header>
+		<p>
+			Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.
+		</p>
+		<br />
+		<ul class="actions" style="text-align:center;">
+			<li><a href="#education" class="button">Learn More</a></li>
+		</ul>
+	</section>
+
+
+	<!-- education -->
+	<section id="education">
+		<header class="major">
+			<h1>education background</h1>
+		</header>
 		{% for edu in education %}
-		    <p class='hideshow'>{{edu.school}}  <b>{{edu.location}}</b></p>
-		    <p>{{edu.degree}}  <b>{{edu.period}}</b></p>
-		    <br />
+		<div class='hideshow row'>
+			<div class="3u 12u$(small)">  <h4><b>{{edu.period}}</b></h4>		   </div>
+			<div class="9u$ 12u$(small) entry"> <h4><strong>{{edu.school}}</strong></h4> </div>
+			<div class="3u 12u$(small)">  <h4><b>{{edu.location}}</b></h4>		   </div>
+			<div class="9u$ 12u$(small) entry"> <h4><strong>{{edu.degree}}</strong></h4> </div>
+			<div class="3u 12u$(small)"><br /></div>
+			<ul class="9u$ 12u$(small)">
+			    {% for des in edu.description %}
+			    	<li class='content content-entry'>{{des}}</li>
+			    {% endfor %}
+			</ul>
+		</div>
+		<br />
 		{% endfor %}
+	</section>
+
+
+	<!-- skill -->
+	<section id="skill">
+		<header class="major">
+			<h1>skill sets</h1>
+		</header>
+		
+	</section>
+
+
+	<!-- professional -->
+	<section id="professional">
+		<header class="major">
+			<h1>professional experience</h1>
+		</header>
 		{% for pro in professional %}
-		    <p class='hideshow'>{{pro.company}}  <b>{{pro.location}}</b></p>
-		    <p>{{pro.position}}  <b>{{pro.period}}</b></p>
-		    {% for des in pro.description %}
-		    	<p class='content'>{{des}}</p>
-		    {% endfor %}
-		    <br />
+		<div class='hideshow row'>
+			<div class="3u 12u$(small)">  <h4><b>{{pro.period}}</b></h4>		   </div>
+			<div class="9u$ 12u$(small) entry"> <h4><strong>{{pro.company}}</strong></h4> </div>
+			<div class="3u 12u$(small)">  <h4><b>{{pro.location}}</b></h4>		   </div>
+			<div class="9u$ 12u$(small) entry"> <h4><strong>{{pro.position}}</strong></h4> </div>
+			<div class="3u 12u$(small)"><br /></div>
+			<ul class="9u$ 12u$(small)">
+			    {% for des in pro.description %}
+			    	<li class='content content-entry'>{{des}}</li>
+			    {% endfor %}
+			</ul>
+		</div>
+		<br />
+		{% endfor %}
+	</section>
+
+
+	<!-- extracurricular -->
+	<section id="extracurricular">
+		<header class="major">
+			<h1>extracurricular experience</h1>
+		</header>
+		{% for exp in extracurricular %}
+		<div class='hideshow row'>
+			<div class="3u 12u$(small)">  <h4><b>{{exp.period}}</b></h4>		   </div>
+			<div class="9u$ 12u$(small) entry"> <h4><strong>{{exp.company}}</strong></h4> </div>
+			<div class="3u 12u$(small)">  <h4><b>{{exp.location}}</b></h4>		   </div>
+			<div class="9u$ 12u$(small) entry"> <h4><strong>{{exp.project}}</strong></h4> </div>
+			<div class="3u 12u$(small)"><br /></div>
+			<div class="9u$ 12u$(small) entry"> 
+				<h4><strong style="color:#2d6677;">{{exp.position}}</strong></h4> </div>
+			<div class="3u 12u$(small)"><br /></div>
+			<ul class="9u$ 12u$(small)">
+			    {% for des in exp.description %}
+			    	<li class='content content-entry'>{{des}}</li>
+			    {% endfor %}
+			</ul>
+		</div>
+		<br />
+		{% endfor %}
+	</section>
+
+
+
+
+		<hr />
+		{% for pub in publications %}
+		    <div><a href="{{ pub.link }}" target="_blank">{{pub.citation}}</a></div>
 		{% endfor %}
 
 	</div>
@@ -79,8 +175,10 @@
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 <script type="text/javascript">
 jQuery(document).ready(function(){
-	jQuery('.hideshow').on('click', function(event) {        
-		jQuery('.content').toggle('show');
+	$('.content').hide();
+	jQuery('.hideshow').on('click', function(event) {
+		var $this = $(this).find('.content');
+		$this.toggle('show');
 	});
 });
 </script>
