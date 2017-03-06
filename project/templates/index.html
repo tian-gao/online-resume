@@ -29,6 +29,7 @@
 				<li><a href="#extracurricular" class="menu">extracurricular experience</a></li>
 				<li><a href="#publication" class="menu">publications</a></li>
 				<li><a href="#honors" class="menu">honors &amp awards</a></li>
+				<li><a href="#contact" class="menu">contact me</a></li>
 			</ul>
 			<hr />
 		</div>
@@ -143,6 +144,51 @@
 			<div class="9u$ 12u$(small) entry"> <h4><strong>{{exp.project}}</strong></h4> </div>
 			<div class="3u 12u$(small)"><br /></div>
 			<div class="9u$ 12u$(small) entry"> 
+				<h4 style="color:#666666;">{{exp.position}}</h4> </div>
+			<div class="3u 12u$(small)"><br /></div>
+			<ul class="9u$ 12u$(small)">
+			    {% for des in exp.description %}
+			    	<li class='content content-entry'>{{des}}</li>
+			    {% endfor %}
+			</ul>
+		</div>
+		<br />
+		{% endfor %}
+	</section>
+
+
+	<!-- publications -->
+	<section id="publication">
+		<header class="major">
+			<h1>publications</h1>
+		</header>		
+		<div class='hideshow row'>
+			{% for pub in publications %}
+				<div class="3u 12u$(small)"> <h4>{{pub.author}}</h4> </div>
+				<div class="9u 12u$(small)">
+					<h4><a href="{{pub.link}}" target="_blank">{{pub.article}}</a></h4>
+				</div>
+				<div class="3u 12u$(small)"> <br /> </div>
+				<div class="9u 12u$(small)"> <h4 style="color:#666666;">{{pub.journal}}</h4> </div>
+				<div class="12u$ 12u$(small)"> <br /> </div>
+			{% endfor %}
+		</div>
+	</section>
+
+
+	<!-- honors -->
+	<section id="honors">
+		<header class="major">
+			<h1>honors &amp awards</h1>
+		</header>
+		{% for exp in extracurricular %}
+		<div class='hideshow row'>
+			<div class="3u 12u$(small)">  <h4><b>{{exp.period}}</b></h4>		   </div>
+			<div class="9u$ 12u$(small) entry"> <h4><strong>{{exp.company}}</strong></h4> </div>
+			<div class="3u 12u$(small)">  <h4><b>{{exp.location}}</b></h4>		   </div>
+			<div class="9u$ 12u$(small) entry"> <h4><strong>{{exp.project}}</strong></h4> </div>
+			<div class="3u 12u$(small)"><br /></div>
+			<div class="9u$ 12u$(small) entry"> 
 				<h4><strong style="color:#2d6677;">{{exp.position}}</strong></h4> </div>
 			<div class="3u 12u$(small)"><br /></div>
 			<ul class="9u$ 12u$(small)">
@@ -156,12 +202,34 @@
 	</section>
 
 
-
-
-		<hr />
-		{% for pub in publications %}
-		    <div><a href="{{ pub.link }}" target="_blank">{{pub.citation}}</a></div>
-		{% endfor %}
+	<!-- contact -->
+	<section id="contact">
+		<header class="major">
+			<h1>contact me</h1>
+		</header>
+		<p>
+			See <a href="#footer">sidebar</a> for social network information, 
+			or directly leave a message below.
+		</p>
+		<br />
+		
+		<form method="post" action="#">
+			<div class="row uniform 100%">
+				<div class="6u 12u$(small)">
+					<input type="text" name="name" id="name" placeholder="Name" />
+				</div>
+				<div class="6u$ 12u$(small)">
+					<input type="email" name="email" id="email" placeholder="Email" />
+				</div>
+				<div class="12u$">
+					<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
+				</div>
+			</div>
+		</form>
+		<ul class="actions" style="text-align:right;">
+			<li><input type="submit" value="Send Message" id="send" /></li>
+		</ul>
+	</section>
 
 	</div>
 
