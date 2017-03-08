@@ -181,24 +181,15 @@
 		<header class="major">
 			<h1>honors &amp awards</h1>
 		</header>
-		{% for exp in extracurricular %}
+		{% for hon in honors %}
 		<div class='hideshow row'>
-			<div class="3u 12u$(small)">  <h4><b>{{exp.period}}</b></h4>		   </div>
-			<div class="9u$ 12u$(small) entry"> <h4><strong>{{exp.company}}</strong></h4> </div>
-			<div class="3u 12u$(small)">  <h4><b>{{exp.location}}</b></h4>		   </div>
-			<div class="9u$ 12u$(small) entry"> <h4><strong>{{exp.project}}</strong></h4> </div>
-			<div class="3u 12u$(small)"><br /></div>
-			<div class="9u$ 12u$(small) entry"> 
-				<h4><strong style="color:#2d6677;">{{exp.position}}</strong></h4> </div>
-			<div class="3u 12u$(small)"><br /></div>
-			<ul class="9u$ 12u$(small)">
-			    {% for des in exp.description %}
-			    	<li class='content content-entry'>{{des}}</li>
-			    {% endfor %}
-			</ul>
+			<div class="3u 12u$(small)">  <h4><b>{{hon.category}}</b></h4>		   </div>
+			<div class="9u$ 12u$(small) entry"> <h4><strong>{{hon.honor}}</strong></h4> </div>
+			<div class="3u 12u$(small)">  <h4 style="color:#666666;">{{hon.time}}</h4> </div>
+			<div class="9u$ 12u$(small) entry"> <h4 style="color:#666666;">{{hon.description}}</h4> </div>
 		</div>
 		<br />
-		{% endfor %}
+		{% endfor %}	
 	</section>
 
 
@@ -209,7 +200,7 @@
 		</header>
 		<p>
 			See <a href="#footer">sidebar</a> for social network information, 
-			or directly leave a message below.
+			or leave a message below.
 		</p>
 		<br />
 		

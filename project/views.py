@@ -14,4 +14,7 @@ def home():
         education = d['education'],
         professional = d['professional'],
         extracurricular = d['extracurricular'],
-        publications = d['publications'])
+        publications = d['publications'],
+        honors = d['honors'])
+
+
