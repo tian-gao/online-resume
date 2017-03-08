@@ -16,5 +16,3 @@ def home():
         extracurricular = d['extracurricular'],
         publications = d['publications'],
         honors = d['honors'])
-
-

@@ -57,7 +57,6 @@
 
 
 
-
 	<!-- Main -->
 	<div id="main">
 	
@@ -104,7 +103,14 @@
 		<header class="major">
 			<h1>skill sets</h1>
 		</header>
-		
+		<ul class="nav-tabs">
+			<li class="active"><a href="#skill">All</a></li>
+			<li><a href="#skill">Programming</a></li>
+			<li><a href="#skill">Web Framework</a></li>
+			<li><a href="#skill">Others</a></li>
+		</ul>
+		<br />
+		<!-- <div>aaa</div> -->
 	</section>
 
 
@@ -239,6 +245,12 @@ jQuery(document).ready(function(){
 		var $this = $(this).find('.content');
 		$this.toggle('show');
 	});
+	
+	var $tabs = $('.nav-tabs').find('li');
+	$tabs.on('click', function(event) {
+		$('.nav-tabs').find('.active').toggleClass('active');
+		jQuery(this).toggleClass('active');
+	})
 });
 </script>
 </body>

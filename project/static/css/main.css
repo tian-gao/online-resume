@@ -1743,6 +1743,30 @@
 		font-size: 2em;
 	}
 
+	.nav-tabs > li {
+		color: #15526b;
+		list-style: none;
+		float: left;
+		width: 10em;
+		text-align: center;
+		border-bottom:1px solid #15526b;
+		border-top: 1px solid transparent;
+		border-radius:4px 4px 0 0;
+		padding: 0.5em 1em 0.5em 1em;	
+	}
+
+	.nav-tabs > li.active {
+		background-color: rgba(8, 32, 42, 0.2);
+		border:1px solid #15526b;
+	}
+	.nav-tabs > li.active > a,
+	.nav-tabs > li.active > a:focus,
+	.nav-tabs > li.active > a:hover {
+		color: #15526b !important;
+		/*background-color: rgba(8, 32, 42, 0.2);*/
+	}
+	
+
 /* Form */
 
 	form {
@@ -2547,8 +2571,11 @@
 		#header a.menu {
 			color: rgba(255, 255, 255, 0.7);
 		}
-		#header a.menu:hover, a.menu:focus, a.menu:active {
+		#header a.menu:hover, 
+
+		#header a.menu:focus, a.menu:active {
 			color: #ffffff !important;
+			text-decoration: none;
 		}
 		
 		#header hr {
