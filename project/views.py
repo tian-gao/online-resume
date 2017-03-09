@@ -1,9 +1,9 @@
 from flask import render_template
+from flask import request
 
 from app import app, pages
 
-
-@app.route('/')
+@app.route('/', methods = ['GET','POST'])
 def home():
     d = {}
     for page in pages:
@@ -15,4 +15,6 @@ def home():
         professional = d['professional'],
         extracurricular = d['extracurricular'],
         publications = d['publications'],
-        honors = d['honors'])
+        honors = d['honors'],
+        skills = d['skills'])
+

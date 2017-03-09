@@ -104,13 +104,41 @@
 			<h1>skill sets</h1>
 		</header>
 		<ul class="nav-tabs">
-			<li class="active"><a href="#skill">All</a></li>
-			<li><a href="#skill">Programming</a></li>
-			<li><a href="#skill">Web Framework</a></li>
-			<li><a href="#skill">Others</a></li>
+			<li class="active" id="all"><a href="#skill">All</a></li>
+			<li id="programming"><a href="#skill">Programming</a></li>
+			<li id="web"><a href="#skill">Web Framework</a></li>
+			<li id="other"><a href="#skill">Others</a></li>
 		</ul>
 		<br />
-		<!-- <div>aaa</div> -->
+
+		<div class="row tab-content" id="content-all">
+			{% for skill in skills %}
+				<div class="3u 12u$(xsmall)">
+					<a class="button">{{skill.name}}</a>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="row tab-content" id="content-programming">
+			{% for skill in skills if skill.category == 'programming' %}
+				<div class="3u 12u$(xsmall)">
+					<a class="button">{{skill.name}}</a>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="row tab-content" id="content-web">
+			{% for skill in skills if skill.category == 'web' %}
+				<div class="3u 12u$(xsmall)">
+					<a class="button">{{skill.name}}</a>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="row tab-content" id="content-other">
+			{% for skill in skills if skill.category == 'other' %}
+				<div class="3u 12u$(xsmall)">
+					<a class="button">{{skill.name}}</a>
+				</div>
+			{% endfor %}
+		</div>
 	</section>
 
 
@@ -168,7 +196,7 @@
 		<header class="major">
 			<h1>publications</h1>
 		</header>		
-		<div class='hideshow row'>
+		<div class='row'>
 			{% for pub in publications %}
 				<div class="3u 12u$(small)"> <h4>{{pub.author}}</h4> </div>
 				<div class="9u 12u$(small)">
@@ -188,7 +216,7 @@
 			<h1>honors &amp awards</h1>
 		</header>
 		{% for hon in honors %}
-		<div class='hideshow row'>
+		<div class='row'>
 			<div class="3u 12u$(small)">  <h4><b>{{hon.category}}</b></h4>		   </div>
 			<div class="9u$ 12u$(small) entry"> <h4><strong>{{hon.honor}}</strong></h4> </div>
 			<div class="3u 12u$(small)">  <h4 style="color:#666666;">{{hon.time}}</h4> </div>
@@ -241,6 +269,9 @@
 <script type="text/javascript">
 jQuery(document).ready(function(){
 	$('.content').hide();
+	$('.tab-content').hide();
+	$('.tab-content#content-all').show();
+
 	jQuery('.hideshow').on('click', function(event) {
 		var $this = $(this).find('.content');
 		$this.toggle('show');
@@ -250,6 +281,11 @@ jQuery(document).ready(function(){
 	$tabs.on('click', function(event) {
 		$('.nav-tabs').find('.active').toggleClass('active');
 		jQuery(this).toggleClass('active');
+		var skill_id = jQuery(this).attr('id');
+		$.get("/",{"skill": skill_id});
+		var s = "content-" + skill_id;
+		$('.tab-content').hide();
+		$('.tab-content#'+s).show();
 	})
 });
 </script>

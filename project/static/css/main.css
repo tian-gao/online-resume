@@ -1743,6 +1743,10 @@
 		font-size: 2em;
 	}
 
+	.nav-tabs {
+		margin-left: -1em;
+	}
+
 	.nav-tabs > li {
 		color: #15526b;
 		list-style: none;
