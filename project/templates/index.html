@@ -238,19 +238,27 @@
 		</p>
 		<br />
 
-		<form method="post" action="">
+		<form method="post" action="/">
 			<div class="row uniform 100%">
-				{% if err_string %}
-					<ul class="12u$" style="margin-bottom:-0.5em;">
-						{% for err in err_string %}		
-							<li class="err">{{err}}</li>	
-						{% endfor %}
-					</ul>
-				{% elif show_success %}
-					<ul class="12u$" style="margin-bottom:-0.5em;">
-						<li class="success">Successfully sending the message!</li>						
-					</ul>
-				{% endif %}
+				
+				{% with errors = get_flashed_messages(category_filter=["error"]) %}
+					{% if errors %}
+						<ul class="12u$" style="margin-bottom:-0.5em;">
+							{% for message in errors %}
+								<li class="err">{{message}}</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				{% endwith %}
+
+				{% with messages = get_flashed_messages(category_filter=["success"]) %}
+					{% if messages %}
+						<ul class="12u$" style="margin-bottom:-0.5em;">
+							<li class="success">{{messages[0]}}</li>
+						</ul>
+					{% endif %}
+				{% endwith %}
+				
 				<div class="6u 12u$(small)">
 					{{form.csrf_token}} {{form.name}}
 				</div>
@@ -302,7 +310,6 @@ jQuery(document).ready(function(){
 </script>
 <script type="text/javascript">
 $(document).on('click', 'a', function(event){
-    event.preventDefault();
     $('html, body, header, footer').animate({
         scrollTop: $( $.attr(this, 'href') ).offset().top
     }, 500);

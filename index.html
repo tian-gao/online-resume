@@ -557,17 +557,25 @@
 		</p>
 		<br />
 
-		<form method="post" action="">
+		<form method="post" action="/">
 			<div class="row uniform 100%">
 				
+				
+					
+				
+
+				
+					
+				
+				
 				<div class="6u 12u$(small)">
-					<input id="csrf_token" name="csrf_token" type="hidden" value="1489113708##df87976a53d5b923e227a69f1d78d800ae294ac7"> <input id="name" name="name" placeholder="Name" type="text" value="">
+					<input id="csrf_token" name="csrf_token" type="hidden" value="1489120049##9d313814fe60c00061c4a9d0ca8fed9352689cb8"> <input id="name" name="name" placeholder="Name" type="text" value="">
 				</div>
 				<div class="6u$ 12u$(small)">
 					<input id="email" name="email" placeholder="E-Mail" type="text" value="">
 				</div>
 				<div class="12u$">
-					<textarea id="message" name="message" placeholder="Message" rows="4"></textarea>
+					<textarea id="message" name="message" placeholder="Message (banned for Flask frozen pages)" rows="4"></textarea>
 				</div>
 				<ul class="actions 12u$" style="text-align:right;">
 					<li><input type="reset" value="Reset" id="reset" /></li>
@@ -611,7 +619,6 @@ jQuery(document).ready(function(){
 </script>
 <script type="text/javascript">
 $(document).on('click', 'a', function(event){
-    event.preventDefault();
     $('html, body, header, footer').animate({
         scrollTop: $( $.attr(this, 'href') ).offset().top
     }, 500);
