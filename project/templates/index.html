@@ -12,7 +12,7 @@
 	<!-- Header -->
 	<header id="header">
 		<div class="inner">
-			<a href="#" class="image avatar">
+			<a href="#about" class="image avatar">
 				<img src="{{ url_for('static', filename='images/pic.jpg') }}" alt="" />
 			</a>
 			<h1><strong>Tian Gao</strong></h1>
@@ -61,7 +61,7 @@
 	<div id="main">
 	
 	<!-- about me -->
-	<section id="">
+	<section id="about">
 		<header class="major">
 			<h1>about me</h1>
 		</header>
@@ -113,29 +113,29 @@
 
 		<div class="row tab-content" id="content-all">
 			{% for skill in skills %}
-				<div class="3u 12u$(xsmall)">
-					<a class="button">{{skill.name}}</a>
+				<div class="2.5u 12u$(xsmall)">
+					<a class="skill-entry">{{skill.name}}</a>
 				</div>
 			{% endfor %}
 		</div>
 		<div class="row tab-content" id="content-programming">
 			{% for skill in skills if skill.category == 'programming' %}
-				<div class="3u 12u$(xsmall)">
-					<a class="button">{{skill.name}}</a>
+				<div class="2.5u 12u$(xsmall)">
+					<a class="skill-entry">{{skill.name}}</a>
 				</div>
 			{% endfor %}
 		</div>
 		<div class="row tab-content" id="content-web">
 			{% for skill in skills if skill.category == 'web' %}
-				<div class="3u 12u$(xsmall)">
-					<a class="button">{{skill.name}}</a>
+				<div class="2.5u 12u$(xsmall)">
+					<a class="skill-entry">{{skill.name}}</a>
 				</div>
 			{% endfor %}
 		</div>
 		<div class="row tab-content" id="content-other">
 			{% for skill in skills if skill.category == 'other' %}
-				<div class="3u 12u$(xsmall)">
-					<a class="button">{{skill.name}}</a>
+				<div class="2.5u 12u$(xsmall)">
+					<a class="skill-entry">{{skill.name}}</a>
 				</div>
 			{% endfor %}
 		</div>
@@ -237,23 +237,36 @@
 			or leave a message below.
 		</p>
 		<br />
-		
-		<form method="post" action="#">
+
+		<form method="post" action="/">
 			<div class="row uniform 100%">
+				{% if err_string %}
+					<ul class="12u$" style="margin-bottom:-0.5em;">
+						{% for err in err_string %}		
+							<li class="err">{{err}}</li>	
+						{% endfor %}
+					</ul>
+				{% elif show_success %}
+					<ul class="12u$" style="margin-bottom:-0.5em;">
+						<li class="success">Successfully sending the message!</li>						
+					</ul>
+				{% endif %}
 				<div class="6u 12u$(small)">
-					<input type="text" name="name" id="name" placeholder="Name" />
+					{{form.csrf_token}} {{form.name}}
 				</div>
 				<div class="6u$ 12u$(small)">
-					<input type="email" name="email" id="email" placeholder="Email" />
+					{{form.email}}
 				</div>
 				<div class="12u$">
-					<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
+					{{form.message}}
 				</div>
+				<ul class="actions 12u$" style="text-align:right;">
+					<li><input type="reset" value="Reset" id="reset" /></li>
+					<li>{{form.submit}}</li>
+				</ul>
 			</div>
 		</form>
-		<ul class="actions" style="text-align:right;">
-			<li><input type="submit" value="Send Message" id="send" /></li>
-		</ul>
+		
 	</section>
 
 	</div>
@@ -281,12 +294,18 @@ jQuery(document).ready(function(){
 	$tabs.on('click', function(event) {
 		$('.nav-tabs').find('.active').toggleClass('active');
 		jQuery(this).toggleClass('active');
-		var skill_id = jQuery(this).attr('id');
-		$.get("/",{"skill": skill_id});
-		var s = "content-" + skill_id;
+		var s = "content-" + jQuery(this).attr('id');
 		$('.tab-content').hide();
 		$('.tab-content#'+s).show();
-	})
+	});
+});
+</script>
+<script type="text/javascript">
+$(document).on('click', 'a', function(event){
+    event.preventDefault();
+    $('html, body, header, footer').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
 });
 </script>
 </body>

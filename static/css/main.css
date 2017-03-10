@@ -1743,6 +1743,10 @@
 		font-size: 2em;
 	}
 
+	.nav-tabs {
+		margin-left: -1em;
+	}
+
 	.nav-tabs > li {
 		color: #15526b;
 		list-style: none;
@@ -1766,6 +1770,95 @@
 		/*background-color: rgba(8, 32, 42, 0.2);*/
 	}
 	
+	.skill-entry {
+		background-color: transparent;
+		border-radius: 0.35em;
+		border: solid 2px #15526b;
+		color: #2d6677 !important;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 400;
+		height: calc(2em + 5px);
+		line-height: 2em;
+		width: 8em;
+		padding: 0 0 0 0;
+		margin-top: 0.5em;
+		/*margin: 0.2em 0.5em 0.2em 2.5em;*/
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.skill-entry:hover {
+		background-color: rgba(73, 191, 157, 0.1);
+		border-color: #4e8287;
+		color: #4e8287 !important;
+	}
+
+	.skill-entry:active {
+		background-color: rgba(73, 191, 157, 0.1);
+		border-color: #4e8287;
+		color: #4e8287 !important;
+	}
+
+	.err {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		background-color: rgba(71, 11, 18, 0.1);
+		border-radius: 0.35em;
+		border: solid 2px #b51b2d;
+		color: #b51b2d !important;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 400;
+		/*height: 3em;*/
+		/*height: calc(2.75em + 5px);*/
+		/*line-height: 2.75em;*/
+		width: 100%;
+		padding: 0 0 0 0.5em;
+		margin: 0.5em 0 0 0;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+		list-style: none;
+		text-align:left;
+	}
+
+	.success {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		background-color: rgba(73, 191, 157, 0.1);
+		border-radius: 0.35em;
+		border: solid 2px #4e8287;
+		color: #4e8287 !important;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 400;
+		/*height: 3em;*/
+		/*height: calc(2.75em + 5px);*/
+		/*line-height: 2.75em;*/
+		width: 100%;
+		padding: 0 0 0 0.5em;
+		margin: 0.5em 0 0 0;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+		list-style: none;
+		text-align:left;
+	}
+
 
 /* Form */
 
@@ -2340,7 +2433,6 @@
 /* Button */
 
 	input[type="submit"],
-	input[type="reset"],
 	input[type="button"],
 	.button {
 		-moz-appearance: none;
@@ -2368,16 +2460,45 @@
 		white-space: nowrap;
 	}
 
+	input[type="reset"] {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		background-color: transparent;
+		border-radius: 0.35em;
+		border: solid 2px #b51b2d;
+		color: #b51b2d !important;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 400;
+		/*height: 3em;*/
+		height: calc(2.75em + 5px);
+		line-height: 2.75em;
+		min-width: 10em;
+		/*padding: 0 1.5em;*/
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
 		input[type="submit"]:hover,
-		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
 			border-color: #4e8287;
 			color: #4e8287 !important;
 		}
 
+		input[type="reset"]:hover,
+		input[type="reset"]:active {
+			background-color: rgba(71, 11, 18, 0.1);
+		}
+
 		input[type="submit"]:active,
-		input[type="reset"]:active,
 		input[type="button"]:active,
 		.button:active {
 			background-color: rgba(73, 191, 157, 0.1);
